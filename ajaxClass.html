@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>ajax class</title>
+</head>
+<body>
+
+</body>
+<script>
+  /*
+    sintaxe do ajax normal sem fetch , o xml é a variavel que recebe a nova instancia do xmlhttprequest que é um objeto, nele teremos algumas chaves e valores, que serão 
+  */
+  let response = ""
+
+	let xml = new XMLHttpRequest;
+       console.log(XMLHttpRequest);
+     xml.responseType = "JSON"  
+     xml.onreadystatechange = function(){
+          if(xml.readyState == 4 && xml.status== 200){
+                  response = xml.response
+                  response = JSON.parse(response);    
+                  console.log(response);      
+          }
+     }
+
+     xml.open("GET","https://jsonplaceholder.typicode.com/comments",true); //metrodo para usar o verbo e mandar a url que iremos acessar
+     xml.send();
+</script>
+</html>
